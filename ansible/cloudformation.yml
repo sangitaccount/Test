@@ -1,0 +1,31 @@
+- name: Provision Stack
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  vars_files:
+    - "vars/cf_vars.yml"
+ 
+  tasks:
+    - name: Run my CloudFormation stack
+      cloudformation:
+        stack_name: "AutoScale"
+        aws_access_key: "{{ aws_access_key_id }}"
+        aws_secret_key: "{{ aws_secret_access_key }}"
+        region: "{{ aws_region }}"
+        state: present 
+        template_url: https://s3-ap-southeast-2.amazonaws.com/san-cfn-templates/AWS_AutoScale_ELB_Notification_Single.template
+      args:
+        template_parameters:
+          AMIId: "{{ AMIId }}"
+          EC2InstanceType: "{{ EC2InstanceType }}"
+          ELBInternetFacing: "{{ ELBInternetFacing }}" 
+          HealthCheckWaitTime: "{{ HealthCheckWaitTime }}" 
+          Network: "{{ Network }}"
+          NotificationEMailId: "{{ NotificationEMailId }}"
+          PublicORPrivate: "{{ PublicORPrivate }}" 
+          ScalingWaitTime: "{{ ScalingWaitTime }}" 
+          SSHLocation: "{{ SSHLocation }}" 
+          SubnetsforAutoScaling: "{{ SubnetsforAutoScaling }}" 
+        tags:
+          Name: "AutoScale" 
+      register: vpc_stack
