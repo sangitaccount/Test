@@ -6,7 +6,7 @@ ELBInternetFacing: internet-facing
 HealthCheckWaitTime: "30"
 Network: vpc-30bd5554
 NotificationEMailId: chs.santhu@gmail.com
-PublicORPrivate: "True"
+PublicORPrivate: Public 
 ScalingWaitTime: "180"
 SSHLocation: 0.0.0.0/0
 SubnetsforAutoScaling: "subnet-0ca77b7a,subnet-b43384d0,subnet-bd1dd5e4"
