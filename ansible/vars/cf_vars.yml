@@ -10,3 +10,4 @@ PublicORPrivate: Public
 ScalingWaitTime: "180"
 SSHLocation: 0.0.0.0/0
 SubnetsforAutoScaling: "subnet-0ca77b7a,subnet-b43384d0,subnet-bd1dd5e4"
+TemplateURL: "https://s3-ap-southeast-2.amazonaws.com/san-cfn-templates/AWS_AutoScale_ELB_Notification_Single.template"

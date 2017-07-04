@@ -13,7 +13,7 @@
         aws_secret_key: "{{ aws_secret_access_key }}"
         region: "{{ aws_region }}"
         state: present 
-        template_url: https://s3-ap-southeast-2.amazonaws.com/san-cfn-templates/AWS_AutoScale_ELB_Notification_Single.template
+        template_url: "{{ TemplateURL }}" 
       args:
         template_parameters:
           AMIId: "{{ AMIId }}"
